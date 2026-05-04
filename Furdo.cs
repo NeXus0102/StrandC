@@ -32,7 +32,7 @@ namespace StrandC
 
         public string Telepules()
         {
-            return Cím.Split("")[1].Split(',')[0];
+            return Cím.Split(" ")[1].Split(",")[0];
         }
 
     }

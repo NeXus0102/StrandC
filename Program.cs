@@ -1,4 +1,7 @@
-﻿namespace StrandC
+﻿using System.ComponentModel.Design;
+using System.Runtime.Serialization;
+
+namespace StrandC
 {
     internal class Program
     {
@@ -19,7 +22,7 @@
             {
                 összeg += item.Ár;
             }
-            double átlag = összeg/(double)list.Count;
+            double átlag = összeg / (double)list.Count;
             Console.WriteLine($"8. feladat\r\nA fürdőbelépők átlagos ára: {átlag}\r\n ");
 
             Furdo min = list[0];
@@ -31,8 +34,21 @@
             Console.WriteLine($"9. feladat");
             Console.WriteLine($"A leghidegebb víz a(z) {min.Név} nevű fürdőben van.\r\n");
 
-
-
+            Console.WriteLine($"10. feladat\r\nKérem, adja meg a fürdő nevét!");
+            string nev = Console.ReadLine();
+            Furdo valasz = null;
+            foreach (var item in list)
+            {
+                if (item.Név == nev)
+                {
+                    valasz = item;
+                }
+            }
+            if (valasz != null)
+                Console.WriteLine($"A {valasz.Telepules()} településen van, " +
+                    $"az irányítószám: " +
+                    $"{valasz.IRSZ()}");
+            else Console.WriteLine("Nincs ilyen nevű fürdő!");
         }
     }
 }
