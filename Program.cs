@@ -22,6 +22,16 @@
             double átlag = összeg/(double)list.Count;
             Console.WriteLine($"8. feladat\r\nA fürdőbelépők átlagos ára: {átlag}\r\n ");
 
+            Furdo min = list[0];
+            foreach (var item in list)
+            {
+                if (item.Vízhőfok < min.Vízhőfok)
+                    min = item;
+            }
+            Console.WriteLine($"9. feladat");
+            Console.WriteLine($"A leghidegebb víz a(z) {min.Név} nevű fürdőben van.\r\n");
+
+
 
         }
     }
