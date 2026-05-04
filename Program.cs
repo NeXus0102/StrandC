@@ -4,8 +4,25 @@
     {
         static void Main(string[] args)
         {
-            List<Furdo> furdok = new List<Furdo>();
-            string[] sorok = File.ReadAllLines("strandadatok.txt");
+            List<Furdo> list = new List<Furdo>();
+            string[] sorok = File.ReadAllLines("strandadatok.txt").Skip(1).ToArray();
+            foreach (string s in sorok)
+            {
+                list.Add(new Furdo(s));
+            }
+
+            Console.WriteLine("7. feladat:");
+            Console.WriteLine($"Fürdők száma: {list.Count}");
+
+            int összeg = 0;
+            foreach (var item in list)
+            {
+                összeg += item.Ár;
+            }
+            double átlag = összeg/(double)list.Count;
+            Console.WriteLine($"8. feladat\r\nA fürdőbelépők átlagos ára: {átlag}\r\n ");
+
+
         }
     }
 }
