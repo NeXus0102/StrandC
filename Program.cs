@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            List<Furdo> furdok = new List<Furdo>();
+            string[] sorok = File.ReadAllLines("strandadatok.txt");
         }
     }
 }
